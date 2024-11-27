@@ -356,8 +356,6 @@ function advanceTurn(group) {
             curUser.orderHistory = [];
         }
 
-        // Compute cost
-        curUser.costHistory.push(curUser.cost);
         curUser.inventoryHistory.push(curUser.inventory);
         curUser.backlogHistory.push(curUser.backlog);
 
@@ -428,6 +426,9 @@ function advanceTurn(group) {
 
         console.log("[" + curUser.role.name + "] " + "Cost Pushed: $" + curUser.cost);
         incrementalCost = curUser.inventory * inventory_cost + curUser.backlog * backlog_cost;
+        console.log("[" + curUser.role.name + "] " + "Incremental Cost: $" + incrementalCost);
+        // Chart the cost for the individual week, not overall cost. 
+        curUser.costHistory.push(incrementalCost);
         curUser.cost += incrementalCost;
         groupToAdvance.cost += incrementalCost;
         console.log("[" + curUser.role.name + "] " + "New Cost: $" + curUser.cost);
