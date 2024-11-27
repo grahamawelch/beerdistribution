@@ -424,10 +424,11 @@ function advanceTurn(group) {
         }
 
         curUser.orderHistory.push(curUser.role.upstream.orders);
-        groupToAdvance.cost += curUser.cost;
 
         console.log("[" + curUser.role.name + "] " + "Cost Pushed: $" + curUser.cost);
-        curUser.cost += curUser.inventory * inventory_cost + curUser.backlog * backlog_cost;
+        incrementalCost = curUser.inventory * inventory_cost + curUser.backlog * backlog_cost;
+        curUser.cost += incrementalCost;
+        groupToAdvance.cost += incrementalCost;
         console.log("[" + curUser.role.name + "] " + "New Cost: $" + curUser.cost);
 
         console.log("\n#####################\n");
