@@ -336,7 +336,8 @@ function advanceTurn(group) {
 
         for (var i = 0; i < 3; i++) {
             groupToAdvance.shipping.push([starting_throughput, starting_throughput]);
-            groupToAdvance.mailing.push([starting_throughput]);
+            // Mailing should not take an extra week. So start with an empty mail queue.
+            groupToAdvance.mailing.push([]);
         }
 
         // Factory only has one item in the pipeline because there is no upstream so no "mail" step.
