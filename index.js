@@ -37,8 +37,8 @@ var numUsers = 0;
 var gameStarted = false;
 var gameEnded = false;
 
-var inventory_cost = 0.5;
-var backlog_cost = 1;
+var inventory_cost = 1;
+var backlog_cost = 2;
 var starting_inventory = 12;
 var starting_throughput = 4;
 var customer_demand = [4, 8, 12, 16, 20];
