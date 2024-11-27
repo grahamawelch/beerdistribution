@@ -369,13 +369,13 @@ function advanceTurn(group) {
 
         // If start, get order from customer directly
         if (i == 0) {
-            if (groupToAdvance.week < 8) {
+            if (groupToAdvance.week < 6) {
                 curUser.role.downstream.orders = customer_demand[0];
-            } else if (groupToAdvance.week < 19) {
+            } else if (groupToAdvance.week < 17) {
                 curUser.role.downstream.orders = customer_demand[1];
-            } else if (groupToAdvance.week < 26) {
+            } else if (groupToAdvance.week < 24) {
                 curUser.role.downstream.orders = customer_demand[2];
-            } else if (groupToAdvance.week < 39) {
+            } else if (groupToAdvance.week < 37) {
                 curUser.role.downstream.orders = customer_demand[3];
             } else {
                 curUser.role.downstream.orders = customer_demand[4];
