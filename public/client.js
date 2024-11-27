@@ -174,13 +174,16 @@ $(document).ready(function () {
                             }
 
                             $('#newOrder').fadeIn("fast");
-                            $("#btnOrder").attr("disabled", false);
                             $("#formOrderAmount").attr("disabled", false);
                         });
                     });
                 });
             });
         });
+    });
+
+    $('#formOrderAmount").click(function () {
+      $("#btnOrder").attr("disabled", false);  
     });
 
     // Go to the next turn
