@@ -236,11 +236,9 @@ io.on('connection', function (socket) {
         if (gameStarted) {
             return callback({ err: "The game has already begun." });
         } else {
-            if (numUsers == 0) {
-                return callback({ err: "You need at least 4 people to play the game." });
-            } else if (numUsers % 4 != 0) {
-                return callback({ err: "You need to fill each group before you can start the game." });
-            }
+            // TODO: Check the number of users...
+            // numUsers is broken and doesn't handle removing groups correctly.
+            // Manually start when a multiple of 4 players are present.
 
             gameStarted = true;
             callback({ numUsers: numUsers });
