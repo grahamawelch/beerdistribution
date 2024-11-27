@@ -339,8 +339,7 @@ function advanceTurn(group) {
             groupToAdvance.mailing.push([starting_throughput]);
         }
 
-        // Factory only has one item in the pipeline because there is no upstream so no "mail" step.
-        groupToAdvance.shipping.push([starting_throughput]);
+        groupToAdvance.shipping.push([starting_throughput, starting_throughput]);
     }
 
     // Loop through all the roles
@@ -369,9 +368,9 @@ function advanceTurn(group) {
 
         // If start, get order from customer directly
         if (i == 0) {
-            if (groupToAdvance.week < 6) {
+            if (groupToAdvance.week < 5) {
                 curUser.role.downstream.orders = customer_demand[0];
-            } else if (groupToAdvance.week < 17) {
+            } else if (groupToAdvance.week < 15) {
                 curUser.role.downstream.orders = customer_demand[1];
             } else if (groupToAdvance.week < 24) {
                 curUser.role.downstream.orders = customer_demand[2];
