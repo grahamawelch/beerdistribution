@@ -182,7 +182,7 @@ $(document).ready(function () {
         });
     });
 
-    $('#formOrderAmount").click(function () {
+    $('#formOrderAmount"').click(function () {
       $("#btnOrder").attr("disabled", false);  
     });
 
