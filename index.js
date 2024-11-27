@@ -294,7 +294,8 @@ io.on('connection', function (socket) {
         console.log("Order: " + order);
 
         // Push the order
-        group.users[user.index].role.upstream.orders = parseInt(order);
+        // Safety fallback in case parseInt returns NaN
+        group.users[user.index].role.upstream.orders = parseInt(order) || 0;
 
         console.log("Remaining: " + group.waitingForOrders);
 
