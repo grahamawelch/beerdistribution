@@ -339,7 +339,8 @@ function advanceTurn(group) {
             groupToAdvance.mailing.push([starting_throughput]);
         }
 
-        groupToAdvance.shipping.push([starting_throughput, starting_throughput]);
+        // Factory only has one item in the pipeline because there is no upstream so no "mail" step.
+        groupToAdvance.shipping.push([starting_throughput]);
     }
 
     // Loop through all the roles
