@@ -103,7 +103,7 @@ $(document).ready(function () {
         if ($(this).hasClass("disabled")) return;
         var orderAmount = $('#formOrderAmount').val();
 
-        var curCost = parseInt($('#cstAmt').text());
+        var curCost = parseInt($('#cstAmt').text()) || 0;
         var costCount = new CountUp("cstAmt", curCost, parseFloat(curUser.cost).toFixed(0), 0, 3, countOptions);
         costCount.start();
 
