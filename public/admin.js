@@ -250,6 +250,11 @@ function drawChart(group, type) {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'X');
 
+    if (type === "Team Cost") 
+        // This is a special chart that isn't per group. 
+        drawTeamCostChart(data);
+        return;
+    
     var groupToShow = gameGroup[group];
 
     for (var i = 0; i < gameGroup[group].users.length; i++) {
@@ -295,6 +300,54 @@ function drawChart(group, type) {
             break;
         default:
     }
+
+    var options = {
+        hAxis: {
+            title: 'Week #'
+        },
+        vAxis: {
+            title: vAxisTitle
+        },
+        series: {
+            1: { curveType: 'function' }
+        },
+        'legend': 'bottom',
+        'title': chartTitle,
+        'width': 675,
+        'height': 250
+    };
+
+    chart.draw(data, options);
+}
+
+function drawTeamCostChart(data) {
+    var maxWeek = 0;    
+    for (var i = 0; i < gameGroup.length; i++) {
+        // i is 0 indexed but groups are 1 indexed.
+        data.addColumn('number', 'Group ' + (i + 1));
+        if (gameGroup[i].week > maxWeek) {
+            maxWeek = gameGroup[i].week
+        }
+    }
+
+    for (var w = 1; w < maxWeek; w++) {
+        var dataRow = [w.toString()];
+        for (var g = 0; g < gameGroup.length; g++) {
+            var numToPush = 0;
+
+            if (w < gameGroup[g].week) {
+                for (var u = 0; u < gameGroup[g].users.length; u++) {
+                    numToPush += gameGroup.users[u].costHistory[w];
+                }
+            }
+            dataRow.push(numToPush);
+            
+        }
+        data.addRows([dataRow]);
+    }
+
+    var vAxisTitle = "Cost ($)";
+    var chartTitle = "Total Group Costs");
 
     var options = {
         hAxis: {
