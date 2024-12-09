@@ -161,13 +161,7 @@ function startGame(numUsers) {
     $('#btnStartGame').hide();
     $('#btnEndGame').show();
     $('#btnResetGame').show();
-    if (numUsers == 1) {
-        var numParticipants = "1 participant.";
-    } else {
-        var numParticipants = numUsers + ' participants.';
-    }
-
-    $('#status').text('The game has started with ' + numParticipants);
+    $('#status').text('The game has started.');
 
     refreshTable(gameGroup, numUsers, true);
     showChart();
@@ -235,13 +229,7 @@ function refreshTable(groups, numUsers, gameStarted) {
 
     gameGroup = groups;
 
-    if (numUsers == 1) {
-        var numParticipants = "There is currently 1 participant.";
-    } else {
-        var numParticipants = 'There are currently ' + numUsers + ' participants.';
-    }
-
-    $('#status').text('You have not started the game. ' + numParticipants);
+    $('#status').text('You have not started the game.');
 }
 
 // The details of the fancy charts
