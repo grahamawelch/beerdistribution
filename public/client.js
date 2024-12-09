@@ -321,18 +321,12 @@ function resetUser() {
 
 // Updates the status message to reflect the state of the game
 function updateStatus() {
-    if (numUsers == 1) {
-        var numParticipants = "There is currently 1 participant.";
-    } else {
-        var numParticipants = 'There are currently ' + numUsers + ' participants.';
-    }
-
     if (curWeek > 0 && !gameEnded) {
-        $('#participants').text('The game has started. You are in Week ' + curWeek + ". " + numParticipants);
+        $('#participants').text('The game has started. You are in Week ' + curWeek + ".");
     } else if (!gameEnded) {
-        $('#participants').text('We are waiting for the game to start. ' + numParticipants);
+        $('#participants').text('We are waiting for the game to start.');
     } else {
-        $('#participants').text('The game has ended. You finished in  Week ' + curWeek + ". " + numParticipants);
+        $('#participants').text('The game has ended. You finished in  Week ' + curWeek + ".");
     }
 }
 
