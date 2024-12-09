@@ -250,10 +250,11 @@ function drawChart(group, type) {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'X');
 
-    if (type === "Team Cost") 
+    if (type === "Team Cost") {
         // This is a special chart that isn't per group. 
         drawTeamCostChart(data);
         return;
+    }
     
     var groupToShow = gameGroup[group];
 
