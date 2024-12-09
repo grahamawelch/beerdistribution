@@ -347,7 +347,7 @@ function drawTeamCostChart(data) {
     }
 
     var vAxisTitle = "Cost ($)";
-    var chartTitle = "Total Group Costs");
+    var chartTitle = "Total Group Costs";
 
     var options = {
         hAxis: {
