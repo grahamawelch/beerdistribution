@@ -337,7 +337,7 @@ function drawTeamCostChart(data) {
 
             if (w < gameGroup[g].week) {
                 for (var u = 0; u < gameGroup[g].users.length; u++) {
-                    numToPush += gameGroup.users[u].costHistory[w];
+                    numToPush += gameGroup[g].users[u].costHistory[w];
                 }
             }
             dataRow.push(numToPush);
